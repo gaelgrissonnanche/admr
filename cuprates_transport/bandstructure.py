@@ -234,6 +234,7 @@ class BandStructure:
         ## Dispersion //////////////////////////////////////////////////////////
         ## e_2D
         self.e_2D_sym = -2 * t * (sp.cos(kx * a) + sp.cos(ky * b))
+        # self.e_2D_sym = -2 * t * (kx**2 + ky**2)
         # self.e_2D_sym = -2 * t * (sp.sqrt((kx * a)**2))
 
         if tp_num != 0:
@@ -264,6 +265,11 @@ class BandStructure:
         # if tz3_num !=0:
         #     self.e_z_sym += -0.5 *  tz3 * sp.cos(3 * kx * a / 2) * sp.cos(3 * ky * b / 2)
         # if tz4_num !=0:
+        #     self.e_z_sym += - tz4 * sp.cos(kz * c / 2) * (sp.cos(5 * kx * a / 2) * sp.cos(ky * b / 2) + sp.cos(kx * a / 2) * sp.cos(5 * ky * b / 2))
+        
+        ## For Yamaji angle testing
+        if tz4_num !=0:
+            self.e_z_sym += - tz4 * sp.cos(kz * c / 2)
         #     self.e_z_sym += 0.25 * tz4 * (sp.cos(5 * kx * a / 2) * sp.cos(ky * b / 2) + sp.cos(kx * a / 2) * sp.cos(5 * ky * b / 2))
         # self.e_z_sym     *= -2 * sp.cos(kz * c / 2)
 
